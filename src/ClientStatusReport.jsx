@@ -175,6 +175,12 @@ const milestones = [
       "Prepare for secondary review",
     ],
     deliverables: ["Refined dashboard incorporating stakeholder feedback with updated metrics and scoring logic"],
+    sprintData: [
+      "14 commits — 8 features, 6 fixes",
+      "Composite ICP Scoring: 5-dimension scoring (win rate, deal size, cycle speed, rep efficiency, expansion rate) with client-side weight sliders",
+      "Global pipeline filtering: Store/Transactional toggle now wired to every tab and endpoint",
+      "Full product scaffold: 112 files created for the complete CK Marketing backend + frontend",
+    ],
   },
   {
     id: 5,
@@ -190,6 +196,7 @@ const milestones = [
       "Set expectations for Week 1 self-directed exploration",
     ],
     deliverables: ["Full platform access with guided walkthrough of live dashboards, views, and navigation"],
+    sprintData: [],
   },
   {
     id: 6,
@@ -205,6 +212,7 @@ const milestones = [
       "Align on priority refinements for the next iteration",
     ],
     deliverables: ["Prioritized findings from Week 1 exploration with real-time refinements applied in co-prototyping session"],
+    sprintData: [],
   },
   {
     id: 7,
@@ -220,6 +228,7 @@ const milestones = [
       "Stress-test model outputs against domain expertise",
     ],
     deliverables: ["Platform outputs mapped to real decision-making workflows with tuned metrics, filters, and views"],
+    sprintData: [],
   },
   {
     id: 8,
@@ -235,6 +244,7 @@ const milestones = [
       "Capture client perspective on value delivered",
     ],
     deliverables: ["Pre/post benchmarking of platform impact on efficiency gains and decision quality"],
+    sprintData: [],
   },
   {
     id: 9,
@@ -250,6 +260,7 @@ const milestones = [
       "Define next-phase options and investment considerations",
     ],
     deliverables: ["Comprehensive value summary with ROI indicators and forward roadmap for expanded engagement"],
+    sprintData: [],
   },
 ];
 
@@ -391,9 +402,42 @@ function MilestoneCard({ milestone, isExpanded, onToggle, index }) {
           animation: "expandIn 0.3s ease",
         }}>
           <div style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40,
+            display: "grid",
+            gridTemplateColumns: milestone.sprintData ? "1fr 1fr 1fr" : "1fr 1fr",
+            gap: 0,
           }}>
-            <div>
+            {milestone.sprintData && (
+              <div style={{ paddingRight: 20 }}>
+                <div style={{
+                  fontSize: 12, fontWeight: 700, letterSpacing: "0.1em",
+                  color: BRAND.orange, marginBottom: 10, textTransform: "uppercase",
+                }}>
+                  Weekly Sprint
+                </div>
+                {milestone.sprintData.length > 0 && (
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 4 }}>
+                    {milestone.sprintData.map((d, i) => (
+                      <li key={i} style={{
+                        fontSize: 15, color: "rgba(255,255,255,0.75)",
+                        lineHeight: 1.6, paddingLeft: 16, position: "relative",
+                      }}>
+                        <span style={{
+                          position: "absolute", left: 0, top: 10,
+                          width: 5, height: 5, borderRadius: "50%",
+                          background: "rgba(255,255,255,0.3)",
+                        }} />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+            <div style={{
+              borderLeft: milestone.sprintData ? "1px solid rgba(255,255,255,0.1)" : "none",
+              paddingLeft: milestone.sprintData ? 20 : 0,
+              paddingRight: 20,
+            }}>
               <div style={{
                 fontSize: 12, fontWeight: 700, letterSpacing: "0.1em",
                 color: BRAND.orange, marginBottom: 10, textTransform: "uppercase",
@@ -416,7 +460,10 @@ function MilestoneCard({ milestone, isExpanded, onToggle, index }) {
                 ))}
               </ul>
             </div>
-            <div>
+            <div style={{
+              borderLeft: "1px solid rgba(255,255,255,0.1)",
+              paddingLeft: 20,
+            }}>
               <div style={{
                 fontSize: 12, fontWeight: 700, letterSpacing: "0.1em",
                 color: BRAND.orange, marginBottom: 10, textTransform: "uppercase",
@@ -695,7 +742,7 @@ export default function ClientStatusReport() {
             <div style={{
               fontSize: 11, color: BRAND.white, letterSpacing: "0.03em",
             }}>
-              Week 2 of 8 | Meeting: Fri 3/13
+              Week 3 of 8 | Meeting: Friday 3/20
             </div>
             {milestonesWithNotes.length > 0 && (
               <button

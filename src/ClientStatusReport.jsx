@@ -169,10 +169,10 @@ const milestones = [
     subtitle: "Incorporating HITL feedback",
     status: "active",
     details: [
-      "Apply feedback from prototype review",
-      "Refine predictive model and scoring logic",
-      "Update dashboard with revised metrics",
-      "Prepare for secondary review",
+      "Implemented pipeline separation feedback from Week 2 HITL session",
+      "Built composite ICP scoring model with 5 weighted dimensions",
+      "Added Insight Engine and global Store/Transactional pipeline filtering",
+      "Scaffolded full CK Marketing product (backend + frontend) and optimized load performance",
     ],
     deliverables: ["Deployed 14 platform updates including a new Insight Engine that cross-references 13 data dimensions to surface hidden revenue patterns, composite ICP scoring with adjustable weighting, global pipeline filtering across all views, and performance optimizations that cut repeat load times from 16 seconds to instant"],
     sprintData: [

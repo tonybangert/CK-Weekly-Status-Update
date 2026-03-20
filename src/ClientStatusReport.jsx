@@ -167,7 +167,7 @@ const milestones = [
     date: "Fri 3/20",
     title: "Refined Model",
     subtitle: "Incorporating HITL feedback",
-    status: "active",
+    status: "complete",
     details: [
       "Implemented pipeline separation feedback from Week 2 HITL session",
       "Built composite ICP scoring model with 5 weighted dimensions",
@@ -181,6 +181,58 @@ const milestones = [
       "Global pipeline filtering: Store/Transactional toggle now wired to every tab and endpoint",
       "Full product scaffold: 112 files created for the complete CK Marketing backend + frontend",
     ],
+    meetingNotes: {
+      sections: [
+        {
+          heading: "Executive Summary",
+          items: [
+            "PerformanceLabs.ai and Kevin Roselli reviewed the custom analytics dashboard ahead of Friday's final handover",
+            "Platform's newly built ICP scoring and insights engine successfully surfaced valuable revenue patterns",
+            "Critical data flaw identified: mixing current customer revenue with pipeline potential is skewing metrics",
+            "Team agreed to separate these data sources immediately",
+          ],
+        },
+        {
+          heading: "Key Decision — Data Separation Strategy",
+          items: [
+            "Dashboard must split into two distinct views: Current Customers and Potential Customers",
+            "Current Customers: fed by Sales vs. Budget reports to analyze existing revenue and build the Ideal Customer Profile (ICP)",
+            "Potential Customers: fed by HubSpot to track prospecting, deal velocity, and pipeline health",
+          ],
+        },
+        {
+          heading: "Data Discrepancies & CRM Hygiene",
+          items: [
+            "Mixed-data approach caused inaccurate rep performance metrics (e.g., Will and Robert's numbers)",
+            "Revealed CRM hygiene issues: mismatched deal ownership and incorrect industry classifications (e.g., Transamerica)",
+          ],
+        },
+        {
+          heading: "Platform Wins",
+          items: [
+            "New composite ICP scoring (using Thompson modeling) is highly effective",
+            "Revenue seasonality tracking opens up targeted marketing opportunities based on client buying cycles",
+          ],
+        },
+        {
+          heading: "Action Items — Kevin",
+          items: [
+            "Provide January and February 2026 actuals ASAP (March to follow at month-end)",
+            "Review and correct industry categorizations for current customers in HubSpot",
+          ],
+        },
+        {
+          heading: "Action Items — Tony/Eric Team",
+          items: [
+            "Upload the new actuals and the 3 new spreadsheets provided by Kevin",
+            "Add date range/time period filters for rep performance",
+            "Make ICP cards clickable to sort by individual metrics (win rate, deal size, cycle speed)",
+            "Add hover-over 'eye' tooltips to explain data sources and calculation methodologies",
+            "Document data sources and calculation methodologies",
+          ],
+        },
+      ],
+    },
   },
   {
     id: 5,
@@ -188,7 +240,7 @@ const milestones = [
     date: "Fri 3/27",
     title: "Platform Access & Walkthrough",
     subtitle: "Guided first look at the live environment",
-    status: "upcoming",
+    status: "active",
     details: [
       "Provision platform access and credentials",
       "Guided walkthrough of dashboards, views, and navigation",
@@ -742,7 +794,7 @@ export default function ClientStatusReport() {
             <div style={{
               fontSize: 11, color: BRAND.white, letterSpacing: "0.03em",
             }}>
-              Week 3 of 8 | Meeting: Friday 3/20
+              Week 4 of 8 | Meeting: Friday 3/27
             </div>
             {milestonesWithNotes.length > 0 && (
               <button
@@ -818,7 +870,7 @@ export default function ClientStatusReport() {
             display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(255,255,255,0.35)",
           }}>
             <div style={{ width: 8, height: 8, borderRadius: "50%", background: BRAND.orange }} />
-            Today
+            Current
           </div>
           <div style={{
             display: "flex", alignItems: "center", gap: 6, fontSize: 11, color: "rgba(255,255,255,0.35)",
